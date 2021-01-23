@@ -89,6 +89,10 @@
 }
 </style>
 </head>
+
+<script src="DFT_Implementation.js"></script>
+<script src="math.js"></script>
+
 <body>
   <div id="header">
     <h1>Discrete Fourier Transform Solver Using the Distributing Computing Labs Platform with Parallel Computing</h1>
@@ -150,6 +154,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="inputGraph.js"></script>
 <script src="outputGraph.js"></script>
+<!-- <script scr="DFT_Implementation.js"></script>
+<script src="math.js"></script> -->
 
 <script>
 //Slider 1:
@@ -188,7 +194,8 @@ slider3.oninput = function() {
 
 function ComputeTransform() {
     drawChart(slider1.value, slider2.value, slider3.value);
-    drawOutputChart(slider1.value, slider2.value, slider3.value);
+    var results = computeDFT(slider1.value, slider2.value, slider3.value);
+    drawOutputChart(results[0], results[1], results[2]);
 }
 
 </script>

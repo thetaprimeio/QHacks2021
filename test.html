@@ -1,0 +1,28 @@
+
+<button type="button" onClick="computeDFT2()" >Test</button> 
+<p id="test">test</p>
+<script src="DFT_Implementation.js"></script>
+<script src="math.js"></script>
+
+<script>
+
+    function computeDFT2(){
+
+        var arrayRet = computeDFT(1,2,3);
+        var arrayStr = arrayRet.toString();
+        document.getElementById("test").innerHTML = arrayStr;
+
+
+        // document.getElementById("test").innerHTML = "arrayStr";
+        //computeDFT(1,2,3);
+        // var l7 = test();
+        // document.getElementById("test").innerHTML = l7;
+        //var arrS = arrBack.toString();
+        //document.getElementById("test").innerHTML = arrS;
+    }
+
+</script>
+
+<script>
+    console.log(math.complex(4,2));
+</script>
