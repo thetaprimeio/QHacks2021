@@ -5,6 +5,32 @@
 <style>
 
 
+#computeButton {
+    background-color: rgb(95, 95, 168);
+    color: white;
+    font-size: large;
+    width: 200px;
+    height: 50px;
+}
+
+
+/* test */
+
+#footer {
+    width: 100%;  
+    height: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#header {
+    width: 100%;  
+    height: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
 #container {
     width: 100%;
     margin: auto;
@@ -64,40 +90,66 @@
 </style>
 </head>
 <body>
+  <div id="header">
+    <h1>Discrete Fourier Transform Solver Using the Distributing Computing Labs Platform with Parallel Computing</h1>
+  </div>
 <div id="container">
     <div id="first">
-        <h3>Omega 1</h3>
+        <h3>Omega 1: <span id="output1"></span></h3>
         <div class="slidecontainer">
         <input type="range" min="1" max="100" value="50" class="slider" id="slider1">
-        <p>Value: <span id="output1"></span></p>
+        <!-- <p>Value: <span id="output1"></span></p> -->
         </div>
 
-        <h3>Omega 2</h3>
+        <h3>Omega 2: <span id="output2"></span></h3>
         <div class="slidecontainer">
             <input type="range" min="1" max="100" value="50" class="slider" id="slider2">
-            <p>Value: <span id="output2"></span></p>
+            <!-- <p>Value: <span id="output2"></span></p> -->
         </div>
 
-        <h3>Omega 3</h3>
+        <h3>Omega 3: <span id="output3"></span></h3>
         <div class="slidecontainer">
             <input type="range" min="1" max="100" value="50" class="slider" id="slider3">
-            <p>Value: <span id="output3"></span></p>
+            <!-- <p>Value: <span id="output3"></span></p> -->
         </div>
 
-        <h3>
+        <h3 style="text-align: center;">
             <p>f(t) = sin(<span id="sin_output1"></span>t) + sin(<span id="sin_output2"></span>t) + sin(<span id="sin_output3"></span>t)</p>
         </h3>
 
-        <button type="button", onClick="ComputeTransform()">Compute Transform</button> 
+        <!-- <audio controls>
+            <source src="cmajor.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio> 
+        <br/> -->
+        <button id="computeButton" type="button", onClick="ComputeTransform()" style="text-align: center; margin: 0 auto; display: block;">Compute Transform</button> 
     </div>
     <!-- <br/> -->
     <div id="second">
-        <canvas id="myChart" style="height: 360px; width: 100%;"></canvas>
+        <canvas id="inputChart" style="height: 380px; width: 100%;"></canvas>
     </div>
     <div id="clear"></div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h3>Output:</h3>
+<canvas id="outputChart" style="height: 300px; width: 100%;"></canvas>
+
+<div id="footer">
+  <h5>QHacks 2021 Submission - Team 3: Jordan Curnew, Benjamin Beggs & Philip Basaric</h5>
+</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="inputGraph.js"></script>
+<script src="outputGraph.js"></script>
 
 <script>
 //Slider 1:
@@ -136,6 +188,7 @@ slider3.oninput = function() {
 
 function ComputeTransform() {
     drawChart(slider1.value, slider2.value, slider3.value);
+    drawOutputChart(slider1.value, slider2.value, slider3.value);
 }
 
 </script>

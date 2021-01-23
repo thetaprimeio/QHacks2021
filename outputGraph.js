@@ -1,11 +1,17 @@
-function drawChart(w1, w2, w3){
-    var ctx = document.getElementById("inputChart");
+function drawOutputChart(w1, w2, w3){
+    var ctx = document.getElementById("outputChart");
     var data = {
         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
         datasets: [{
-            label: "f(t) = sin(w1t) + sin(w2t) + sin(w3t)",
-            function: function(x) { return Math.sin(w1*x) + Math.sin(w2*x) + Math.sin(w3*x) },
-            borderColor: "rgba(75, 192, 192, 1)",
+            label: "iono",
+            function: function(x) { 
+                if(x == w1 || x == w2 || x == w3){
+                    return 1
+                }    
+                
+                return 0 
+            },
+            borderColor: "rgba(247,0,0,1.00)",
             data: [],
             fill: false
         }]
