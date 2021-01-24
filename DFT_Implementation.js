@@ -16,7 +16,7 @@ function computeDFT(w1, w2, w3){
         }
         console.log(gp);
         if(math.abs(gp) > 1){
-            returnArr[arrCounter] = math.abs(gp);
+            returnArr[arrCounter] = p;
             arrCounter++;
         }
     }
