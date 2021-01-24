@@ -39,7 +39,7 @@ async function deployJob() {
 //w2=12
 //w3=14
   computeBtn.disabled = true;       //0 to 100
-  const job = window.dcp.compute.for(0, 50, function(p,w1,w2,w3){
+  const job = window.dcp.compute.for(0, 41, function(p,w1,w2,w3){
     progress(0);
     var N = 300;//500
     var gp_re = 0;
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', main);
 function drawOutputChart(w1, w2, w3){
   var ctx = document.getElementById("outputChart");
   var data = {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+      labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
       datasets: [{
           label: "Transformed DFT function",
           function: function(x) { 
