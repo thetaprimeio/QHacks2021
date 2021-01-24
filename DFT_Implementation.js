@@ -1,6 +1,5 @@
 function computeDFT(w1, w2, w3, p){
     progress(0);
-    let returnArr = [];
     var pmax = 100;
     var N = 20000;
     var gp = math.complex(0,0);
@@ -16,9 +15,7 @@ function computeDFT(w1, w2, w3, p){
         progress(k / N); // Progress factorial
     }
     if(math.abs(gp) > 1){
-        returnArr.push(p);
-        arrCounter++;
+        return p;
     }
-    console.log(returnArr);
-    return returnArr;
+    return false;
 }
