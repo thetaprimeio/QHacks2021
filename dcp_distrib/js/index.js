@@ -3,15 +3,24 @@ const results = [];
 function main() {
   const inputA = document.getElementById('inputA');
   const inputB = document.getElementById('inputB');
+  const inputC = document.getElementById('inputC');
 
   inputA.addEventListener('input', () => {
     const a = Number(inputA.value);
     const b = Number(inputB.value);
+    const c = Number(inputC.value);
   });
 
   inputB.addEventListener('input', () => {
     const a = Number(inputA.value);
     const b = Number(inputB.value);
+    const c = Number(inputC.value);
+  });
+
+  inputC.addEventListener('input', () => {
+    const a = Number(inputA.value);
+    const b = Number(inputB.value);
+    const c = Number(inputC.value);
   });
 
   document
@@ -23,6 +32,7 @@ async function deployJob() {
   const computeBtn = document.getElementById('compute-button');
   const inputA = document.getElementById('inputA');
   const inputB = document.getElementById('inputB');
+  const inputC = document.getElementById('inputC');
   const a = Number(inputA.value);
   const b = Number(inputB.value);
 
