@@ -2,7 +2,25 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://scheduler.distributed.computer/dcp-client/dcp-client.js"></script>
+<script src="./dcp_distrib/js/index.js" defer></script>
 <style>
+
+#progress-container {
+  background-color: #ccc;
+  border-radius: 10px;
+  height: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  min-width: 250px;
+  width: 100%;
+}
+
+#progressbar {
+  height: 100%;
+  width: 0%;
+  background-color: #f60;
+}
 
 
 #compute-button {
@@ -126,11 +144,22 @@
             Your browser does not support the audio element.
         </audio> 
         <br/> -->
-        <button id="compute-button" type="button", onClick="ComputeTransform()" style="text-align: center; margin: 0 auto; display: block;">Compute Transform</button> 
+        <button id="compute-button" type="button", onClick="ComputeTransform()" style="text-align: center; margin: 0 auto; display: block;">Compute Transform</button>
+      </br>
+        <div id="progress-container" hidden>
+          <div
+            id="progressbar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        <div id="resultsMsg" hidden></div>
+        <div id="status"></div>
     </div>
     <!-- <br/> -->
     <div id="second">
-        <canvas id="inputChart" style="height: 380px; width: 100%;"></canvas>
+        <canvas id="inputChart" style="height: 400px; width: 100%;"></canvas>
     </div>
     <div id="clear"></div>
 </div>
@@ -138,13 +167,13 @@
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
+
+
 <br/>
 <br/>
 <br/>
 <h3>Output:</h3>
-<canvas id="outputChart" style="height: 300px; width: 100%;"></canvas>
+<canvas id="outputChart" style="height: 320px; width: 100%;"></canvas>
 
 <div id="footer">
   <h5>QHacks 2021 Submission - Team 3: Jordan Curnew, Benjamin Beggs & Philip Basaric</h5>
@@ -194,8 +223,8 @@ inputC.oninput = function() {
 
 function ComputeTransform() {
     drawChart(inputA.value, inputB.value, inputC.value);
-    var results = computeDFT(inputA.value, inputB.value, inputC.value);
-    drawOutputChart(results[0], results[1], results[2]);
+    // var results = computeDFT(inputA.value, inputB.value, inputC.value);
+    // drawOutputChart(results[0], results[1], results[2]);
 }
 
 </script>
