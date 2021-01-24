@@ -5,7 +5,7 @@
 <style>
 
 
-#computeButton {
+#compute-button {
     background-color: rgb(95, 95, 168);
     color: white;
     font-size: large;
@@ -99,26 +99,26 @@
   </div>
 <div id="container">
     <div id="first">
-        <h3>Omega 1: <span id="output1"></span></h3>
+        <h3>Omega 1: <span id="outputA"></span></h3>
         <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="slider1">
-        <!-- <p>Value: <span id="output1"></span></p> -->
+        <input type="range" min="1" max="100" value="50" class="slider" id="inputA">
+        <!-- <p>Value: <span id="outputA"></span></p> -->
         </div>
 
-        <h3>Omega 2: <span id="output2"></span></h3>
+        <h3>Omega 2: <span id="outputB"></span></h3>
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="slider2">
-            <!-- <p>Value: <span id="output2"></span></p> -->
+            <input type="range" min="1" max="100" value="50" class="slider" id="inputB">
+            <!-- <p>Value: <span id="outputB"></span></p> -->
         </div>
 
-        <h3>Omega 3: <span id="output3"></span></h3>
+        <h3>Omega 3: <span id="outputC"></span></h3>
         <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="slider3">
-            <!-- <p>Value: <span id="output3"></span></p> -->
+            <input type="range" min="1" max="100" value="50" class="slider" id="inputC">
+            <!-- <p>Value: <span id="outputC"></span></p> -->
         </div>
 
         <h3 style="text-align: center;">
-            <p>f(t) = sin(<span id="sin_output1"></span>t) + sin(<span id="sin_output2"></span>t) + sin(<span id="sin_output3"></span>t)</p>
+            <p>f(t) = sin(<span id="sin_outputA"></span>t) + sin(<span id="sin_outputB"></span>t) + sin(<span id="sin_outputC"></span>t)</p>
         </h3>
 
         <!-- <audio controls>
@@ -126,7 +126,7 @@
             Your browser does not support the audio element.
         </audio> 
         <br/> -->
-        <button id="computeButton" type="button", onClick="ComputeTransform()" style="text-align: center; margin: 0 auto; display: block;">Compute Transform</button> 
+        <button id="compute-button" type="button", onClick="ComputeTransform()" style="text-align: center; margin: 0 auto; display: block;">Compute Transform</button> 
     </div>
     <!-- <br/> -->
     <div id="second">
@@ -159,42 +159,42 @@
 
 <script>
 //Slider 1:
-var slider1 = document.getElementById("slider1");
-var output1 = document.getElementById("output1");
-output1.innerHTML = slider1.value;
-sin_output1.innerHTML = slider1.value;
+var inputA = document.getElementById("inputA");
+var outputA = document.getElementById("outputA");
+outputA.innerHTML = inputA.value;
+sin_outputA.innerHTML = inputA.value;
 
-slider1.oninput = function() {
-  output1.innerHTML = this.value;
-  sin_output1.innerHTML = this.value;
+inputA.oninput = function() {
+  outputA.innerHTML = this.value;
+  sin_outputA.innerHTML = this.value;
 }
 
 //Slider 2:
-var slider2 = document.getElementById("slider2");
-var output2 = document.getElementById("output2");
-output2.innerHTML = slider2.value;
-sin_output2.innerHTML = slider2.value;
+var inputB = document.getElementById("inputB");
+var outputB = document.getElementById("outputB");
+outputB.innerHTML = inputB.value;
+sin_outputB.innerHTML = inputB.value;
 
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
-  sin_output2.innerHTML = this.value;
+inputB.oninput = function() {
+  outputB.innerHTML = this.value;
+  sin_outputB.innerHTML = this.value;
 }
 
 //Slider 3:
-var slider3 = document.getElementById("slider3");
-var output3 = document.getElementById("output3");
-output3.innerHTML = slider3.value;
-sin_output3.innerHTML = slider3.value;
+var inputC = document.getElementById("inputC");
+var outputC = document.getElementById("outputC");
+outputC.innerHTML = inputC.value;
+sin_outputC.innerHTML = inputC.value;
 
-slider3.oninput = function() {
-  output3.innerHTML = this.value;
-  sin_output3.innerHTML = this.value;
+inputC.oninput = function() {
+  outputC.innerHTML = this.value;
+  sin_outputC.innerHTML = this.value;
 }
 
 
 function ComputeTransform() {
-    drawChart(slider1.value, slider2.value, slider3.value);
-    var results = computeDFT(slider1.value, slider2.value, slider3.value);
+    drawChart(inputA.value, inputB.value, inputC.value);
+    var results = computeDFT(inputA.value, inputB.value, inputC.value);
     drawOutputChart(results[0], results[1], results[2]);
 }
 
