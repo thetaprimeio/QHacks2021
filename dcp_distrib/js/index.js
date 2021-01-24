@@ -39,9 +39,9 @@ async function deployJob() {
 //w2=12
 //w3=14
   computeBtn.disabled = true;       //0 to 100
-  const job = window.dcp.compute.for(9, 15, function(p,w1,w2,w3){
+  const job = window.dcp.compute.for(0, 50, function(p,w1,w2,w3){
     progress(0);
-    var N = 250;//500
+    var N = 300;//500
     var gp_re = 0;
     var gp_im = 0;
     for(k = 0; k <= N; k++){
@@ -85,7 +85,7 @@ async function deployJob() {
   });
 
   try {
-    await job.localExec();
+    await job.localExec();//exec
     // OR
     // await job.localExec();
   } catch (error) {
