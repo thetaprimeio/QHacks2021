@@ -15,7 +15,7 @@ function computeDFT(w1, w2, w3){
             gp = math.add(gp, t1);
         }
         console.log(gp);
-        if(Math.abs(gp) > 1){
+        if(math.abs(gp) > 1){
             returnArr[counter] = gp;
             counter++;
         }
