@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discrete Fourier Transform</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- Loads dcp-client into the `window.dcp` object -->
+    <script src="https://scheduler.distributed.computer/dcp-client/dcp-client.js"></script>
+    <script src="js/index.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Discrete Fourier Transform</h1>
+      <p>
+        A discrete fourier tranform implementation computed using the DCP. 
+      </p>
+      <p>
+        Input the constituent frequencies of your desired chord:
+      </p>
+      <div class="input-group">
+        <label for="inputA">omega_1:</label>
+        <input id="inputA" type="number" min="1" step="1" value="261" />
+      </div>
+      <div class="input-group">
+        <label for="inputB">omega_2:</label>
+        <input id="inputB" type="number" min="1" step="1" value="329" />
+      </div>
+      <div class="input-group">
+        <label for="inputC">omega_3:</label>
+        <input id="inputC" type="number" min="1" step="1" value="391" />
+      </div>
+      <button id="compute-button">Compute</button>
+      <div id="status"></div>
+      <div id="progress-container" hidden>
+        <div
+          id="progressbar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <div id="resultsMsg" hidden>
+        Constituent Frequencies Found: <span id="results">none</span>
+      </div>
+    </main>
+  </body>
+</html>
