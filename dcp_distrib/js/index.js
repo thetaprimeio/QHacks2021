@@ -35,25 +35,13 @@ async function deployJob() {
   const inputC = document.getElementById('inputC');
   const a = Number(inputA.value);
   const b = Number(inputB.value);
+  const c = Number(inputC.value);
 
-  setStatus('Deploying job.');
+  setStatus('Performing Discrete Fourier Transform on the described sum of sines.');
 
   computeBtn.disabled = true;
 
-  const job = window.dcp.compute.for(a, b, (number) => {
-    progress(0);
-    let sum = 0;
-    for (let i = 1; i <= number; i += 1) {
-      sum += i;
-      if (sum === number) {
-        return number;
-      }
-      if (sum > number) {
-        return false;
-      }
-      progress(sum / number); //sum/number
-    }
-  });
+  const job = window.dcp.compute.for(0, 101, computeDFT(a,b,c,p));
 
   job.public.name = 'Discrete Fourier Transform';
   job.work.on('uncaughtException', (e) => alert(e));
@@ -70,6 +58,7 @@ async function deployJob() {
       (status.computed / status.total) * 100
     }%`;
   });
+
   job.on('result', logResult);
   job.on('complete', () => {
     computeBtn.disabled = false;
@@ -89,20 +78,9 @@ function setStatus(newStatus) {
 }
 
 function logResult(event) {
-  // Work function returns false for non-triangular numbers.
-  if (!event.result) {
-    return;
-  }
   results.push(event.result);
 
   let resultsText;
-  if (results.length === 1) {
-    resultsText = `only ${results[0]}.`;
-  } else {
-    const allButLast = results.slice(0, -1);
-    const last = results.slice(-1)[0];
-    resultsText = `${allButLast.join(', ')} and ${last}.\n`;
-  }
   document.getElementById('results').innerText = resultsText;
 }
 
