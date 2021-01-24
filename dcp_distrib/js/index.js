@@ -39,9 +39,9 @@ async function deployJob() {
   setStatus('Performing Discrete Fourier Transform on the described sum of sines.');
 
   computeBtn.disabled = true;
-  const job = window.dcp.compute.for(8, 16, function(p,w1,w2,w3){
+  const job = window.dcp.compute.for(1, 100, function(p,w1,w2,w3){
     progress(0);
-    var N = 1_000;
+    var N = 500;
     var gp_re = 0;
     var gp_im = 0;
     for(k = 0; k <= N; k++){
